@@ -17,7 +17,7 @@ const anton = Anton({
 
 export default function Events() {
     return (
-        <div className='h-screen relative'>
+        <div className='h-screen relative' id="events">
             <div className='absolute inset-0 bg-background opacity-30'></div>
             <Image src={events} alt='theme' height={1000} width={1000} className='w-full h-full object-cover' />
             <div className={`absolute top-10 md:text-9xl text-5xl text-center w-full flex flex-col items-start gap-10 px-10 justify-evenly h-full`}>

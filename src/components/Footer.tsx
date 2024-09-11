@@ -12,7 +12,7 @@ const anton = Anton({
 
 export default function Footer() {
     return (
-        <div className="h-screen relative">
+        <div className="h-screen relative" id="contact">
             <Image src={footerbg} alt="footer" width={1000} height={1000} className="object-cover w-full h-full" />
             <div className="absolute inset-0 bg-background opacity-50"></div>
             <div className="absolute top-0 md:text-6xl text-3xl text-center w-full flex flex-col justify-around h-full items-center gap-10">
