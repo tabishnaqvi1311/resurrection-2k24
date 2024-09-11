@@ -1,5 +1,5 @@
 import Image from "next/image";
-import about from "../assets/about.png";
+import about from "../app/assets/about.png";
 import { Anton } from "next/font/google";
 
 const anton = Anton({

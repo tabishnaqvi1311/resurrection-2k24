@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import events from "../assets/events.png";
+import events from "../app/assets/events.png";
 import { Anton } from "next/font/google";
-import event1 from "../assets/event1.png"
-import event2 from "../assets/event2.png"
-import event3 from "../assets/event3.png"
-import event4 from "../assets/event4.png"
-import event5 from "../assets/event5.png"
-import event6 from "../assets/event6.png"
+import event1 from "../app/assets/event1.png"
+import event2 from "../app/assets/event2.png"
+import event3 from "../app/assets/event3.png"
+import event4 from "../app/assets/event4.png"
+import event5 from "../app/assets/event5.png"
+import event6 from "../app/assets/event6.png"
 
 const anton = Anton({
     subsets: ["latin"],

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import hero from "../assets/hero.png";
+import hero from "../app/assets/hero.png";
 import { Anton } from "next/font/google";
 import Button from './Button';
 

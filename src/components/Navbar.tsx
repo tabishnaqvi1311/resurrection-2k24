@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logo  from "../assets/logo.webp"
-import test from "../assets/test.webp"
+import logo  from "../app/assets/logo.webp"
+import test from "../app/assets/test.webp"
 
 export default function Navbar() {
     return(

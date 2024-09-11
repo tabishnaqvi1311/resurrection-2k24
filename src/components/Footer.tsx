@@ -1,5 +1,5 @@
 import Image from "next/image";
-import footerbg from "../assets/footer.png";
+import footerbg from "../app/assets/footer.png";
 import { Anton } from "next/font/google";
 import { FaInstagram, FaFacebookF, FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
