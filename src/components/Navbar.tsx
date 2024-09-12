@@ -35,7 +35,7 @@ export default function Navbar() {
         <nav className="flex md:justify-around justify-between fixed top-0 w-full z-10 items-center bg-background py-4 px-6">
             <Link href={"/"}>
                 <div className="flex justify-center items-center">
-                    <Image src={logo} alt="logo" width={50} height={50} onClick={() => setToggle(prev => !prev)} />
+                    <Image src={logo} alt="logo" width={50} height={50}  />
                     <Image src={test} alt="logo" width={200} height={200} className="md:block hidden" />
                 </div>
             </Link>

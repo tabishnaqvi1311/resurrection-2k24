@@ -2,7 +2,8 @@ import Button from "./Button";
 import footerbg from "../app/assets/footer.png";
 import Image from "next/image";
 import { Anton } from "next/font/google";
-import { overTheYears } from "@/constants";
+import { motion } from "framer-motion";
+import AnimatedTimeline from "./AnimatedTimeline";
 
 const anton = Anton({
     subsets: ["latin"],
@@ -19,17 +20,8 @@ export default function OverTheYears() {
                     <h1 className={`${anton.className} text-white uppercase`}>
                         Ressurection Over The <span className="text-yellow-600">Years</span>
                     </h1>
-                    <div className="flex justify-evenly">
-                        {
-                            overTheYears.map((year, index) => (
-                                <div className="flex flex-col items-center">
-                                    <Image src={footerbg} alt="year" height={200} width={200} className="aspect-auto"/>
-                                    <p className="text-yellow-600 text-4xl">{year.title}</p>
-                                    <p className="text-base text-white ">{year.description}</p>
-                                </div>
-                            ))
-
-                        }
+                    <div className="flex justify-evenly md:flex-row flex-col">
+                        <AnimatedTimeline />
                     </div>
                 </div>
             </div>

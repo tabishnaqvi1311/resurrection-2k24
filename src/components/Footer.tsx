@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="absolute top-0 md:text-6xl text-3xl text-center w-full flex flex-col justify-around h-full items-center gap-10">
                 <div className="flex flex-col gap-3 items-center">
                     <h1 className={`${anton.className} text-white uppercase`}>Want To be a part of resurrection?</h1>
-                    <Link href={"/register"}><button className="bg-black text-white px-6 py-3 text-lg rounded-xl  w-fit">Register Now</button></Link>
+                    <Link href={"/register"}><button className="bg-black text-yellow-600 px-6 py-3 text-lg rounded-xl w-fit">Register Now</button></Link>
                 </div>
                 <div className="flex md:flex-row flex-col justify-around w-full md:p-0 p-4 md:gap-0 gap-4">
                     <div className="flex flex-col items-start gap-5">
@@ -32,7 +32,7 @@ export default function Footer() {
 
                         </div>
                         <div className="text-white flex">
-                            <FaInstagram size={40} />
+                            <a href="https://www.instagram.com/resurrectionmr/" referrerPolicy="no-referrer" target="_blank"> <FaInstagram size={40} /></a>
                             <FaFacebookF size={40} />
                         </div>
                     </div>

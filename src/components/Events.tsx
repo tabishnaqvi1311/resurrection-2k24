@@ -25,27 +25,27 @@ export default function Events() {
                 <Marquee gradient={false} speed={150} pauseOnHover>
                     <div className='text-white text-2xl flex gap-20 overflow-hidden'>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
-                            <Image src={event1} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
+                            <Image src={event1} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg' />
                             <p>Music</p>
                         </div>
                         <div className='flex flex-col items-start gap-2 w-[250px] h-[250px]'>
-                            <Image src={event2} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl ' />
+                            <Image src={event2} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg ' />
                             <p>Dance</p>
                         </div>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
-                            <Image src={event3} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
+                            <Image src={event3} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg' />
                             <p>Theatre</p>
                         </div>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
-                            <Image src={event4} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
+                            <Image src={event4} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg' />
                             <p>Fashion</p>
                         </div>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
-                            <Image src={event5} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
+                            <Image src={event5} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg' />
                             <p>Fine Arts</p>
                         </div>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
-                            <Image src={event6} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
+                            <Image src={event6} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg' />
                             <p>Culinary</p>
                         </div>
                         <div></div>
