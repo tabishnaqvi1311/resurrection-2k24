@@ -48,7 +48,7 @@ export default function Navbar() {
                 <ul className="justify-between gap-12 md:flex hidden">
                     {
                         navLinks.map((link, i) => (
-                            <a href={link.link} key={i} className="text-white hover:text-yellow-600 cursor-pointer transition-all duration-200">{link.title}</a>
+                            <Link href={`/${link.link}`} key={i} className="text-white hover:text-yellow-600 cursor-pointer transition-all duration-200">{link.title}</Link>
                         ))
                     }
                 </ul>
