@@ -2,7 +2,7 @@ import Button from "./Button";
 import footerbg from "../app/assets/footer.png";
 import Image from "next/image";
 import { Anton } from "next/font/google";
-import { overTheYears } from "@/app/constants";
+import { overTheYears } from "@/constants";
 
 const anton = Anton({
     subsets: ["latin"],
