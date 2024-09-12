@@ -22,13 +22,13 @@ export default function Events() {
             <Image src={events} alt='theme' height={1000} width={1000} className='w-full h-full object-cover' />
             <div className={`absolute top-10 md:text-9xl text-5xl text-center w-full flex flex-col items-start gap-10 px-10 justify-evenly h-full`}>
                 <h3 className={`${anton.className} text-white`}>Events</h3>
-                <Marquee gradient={false} speed={120} pauseOnHover>
-                    <div className='text-white text-2xl flex gap-20'>
+                <Marquee gradient={false} speed={150} pauseOnHover>
+                    <div className='text-white text-2xl flex gap-20 overflow-hidden'>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
                             <Image src={event1} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
                             <p>Music</p>
                         </div>
-                        <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
+                        <div className='flex flex-col items-start gap-2 w-[250px] h-[250px]'>
                             <Image src={event2} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl ' />
                             <p>Dance</p>
                         </div>
@@ -48,6 +48,7 @@ export default function Events() {
                             <Image src={event6} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl' />
                             <p>Culinary</p>
                         </div>
+                        <div></div>
                     </div>
                 </Marquee>
             </div>

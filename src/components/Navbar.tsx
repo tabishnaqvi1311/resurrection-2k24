@@ -7,6 +7,7 @@ import { navLinks } from "@/app/constants";
 import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -37,9 +38,9 @@ export default function Navbar() {
                 <Image src={test} alt="logo" width={200} height={200} className="md:block hidden" />
             </div>
             <div className="text-gray-300 flex items-center gap-12">
-                {showButton ? <button className={`bg-[#c4851d] p-2 rounded-xl text-background hover:bg-yellow-600 transition-all duration-200 font-medium`}>
+                {showButton ? <Link href={"/register"}><button className={`bg-[#c4851d] p-2 rounded-xl text-background hover:bg-yellow-600 transition-all duration-200 font-medium`}>
                     Register Now
-                </button> : <button className={`bg-background p-2 rounded-xl text-background`}>
+                </button></Link> : <button className={`bg-background p-2 rounded-xl text-background`}>
                     Register Now
                 </button>}
                 <ul className="justify-between gap-12 md:flex hidden">

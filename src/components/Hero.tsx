@@ -12,7 +12,7 @@ const Hero = () => {
     return (
         <div className='h-screen relative' id='hero'>
             <div className='absolute inset-0 bg-background opacity-75'></div>
-            <div className={` text-red-700 fixed top-1/4 md:text-9xl text-6xl text-center w-full flex flex-col justify-center items-center`}>
+            <div className={` text-red-700 absolute top-1/4 md:text-9xl text-6xl text-center w-full flex flex-col justify-center items-center`}>
                 <div className={`${anton.className} flex flex-col items-end`}>
 
                     <h1>Resurrection</h1>

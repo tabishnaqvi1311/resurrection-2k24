@@ -10,7 +10,7 @@ const anton = Anton({
 
 export default function About() {
     return (
-        <div className="flex items-center justify-between bg-black gap-10 h-screen" id="about">
+        <div className="relative flex items-center justify-between bg-black gap-10 h-screen" id="about">
             <Image src={about} alt="about" width={200} height={200} className="w-1/2 h-full object-cover md:block hidden" />
             <div className="flex flex-col bg-black md:w-1/2 p-10 h-full justify-evenly">
                 <AboutStats font={anton}/>
