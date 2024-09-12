@@ -1,6 +1,8 @@
+import { Team } from "@prisma/client";
+
 export type EventSelectionFormProps = {
-    eventName: string;
-    eventCategory: string;
-    members: any[];
+    eventCategory: string,
+    eventName: string,
+    team: Team[]
     updateFields: (fields: any) => void;
 }

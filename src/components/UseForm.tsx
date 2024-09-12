@@ -3,7 +3,7 @@ import FormWrapper from "./FormWrapper";
 
 export default function UserForm({
     name,
-    email,
+    phone,
     collegeName,
     updateFields
 }: UserFormProps) {
@@ -23,8 +23,8 @@ export default function UserForm({
                     placeholder="Email"
                     className="p-2 focus:outline-none w-full rounded-lg text-background"
                     required
-                    value={email}
-                    onChange={(e) => updateFields({ email: e.target.value })}
+                    value={phone}
+                    onChange={(e) => updateFields({ phone: e.target.value })}
                 />
                 <input
                     type="text"

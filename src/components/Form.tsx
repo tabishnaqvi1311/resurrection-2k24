@@ -6,13 +6,18 @@ import UserForm from "./UseForm";
 import EventSelectionForm from "./EventSelectionForm";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { EventCartProvider } from "@/context/EventCartContext";
+import { useEventCart } from "@/hooks/useEventCart";
 
 export default function Form() {
 
     const initialData = {
         name: "",
-        email: "",
+        phone: "",
         collegeName: "",
+        eventName: "",
+        eventCategory: "",
+        team: []
     }
 
     const [data, setData] = useState(initialData);
@@ -35,47 +40,61 @@ export default function Form() {
         isLastStep
     } = useMultiForm([
         <UserForm {...data} updateFields={updateFields} />,
-        // <EventSelectionForm {...data} updateFields={updateFields} />
+        <EventSelectionForm {...data} updateFields={updateFields} />
     ]);
+
+    const { cart } = useEventCart();
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        console.log(data);
+        // console.log(data);
         if (!isLastStep) return next();
-        if(!data.name || !data.email || !data.collegeName) {
-            toast.warning("Please fill all the fields", {
-                theme: "dark",
-                position: "bottom-right",
-            });
-            return;
-        }
-        try {
-            const response = await fetch("/api/send", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data),
-            });
-    
-            const result = await response.json();
-            console.log(result);
-            toast.success("Registered Successfully", {
-                theme: "dark",
-                position: "bottom-right",
-            });
+        console.log(cart)
 
-        }
-        catch (error) {
-            toast.error("Something went wrong", {
-                theme: "dark",
-                position: "bottom-right",
-            });
-        }
+        toast.success(JSON.stringify({
+            name: data.name,
+            phone: data.phone,
+            collegeName: data.collegeName,
+            cart: JSON.stringify(cart)
+        }), {
+            theme: "dark",
+            position: "bottom-right"
+        })
+        // if (!data.name || !data.phone || !data.collegeName) {
+        //     toast.warning("Please fill all the fields", {
+        //         theme: "dark",
+        //         position: "bottom-right",
+        //     });
+        //     return;
+        // }
+        // try {
+        //     const response = await fetch("/api/send", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify(data),
+        //     });
+
+        //     const result = await response.json();
+        //     console.log(result);
+        //     toast.success("Registered Successfully", {
+        //         theme: "dark",
+        //         position: "bottom-right",
+        //     });
+
+        // }
+        // catch (error) {
+        //     toast.error("Something went wrong", {
+        //         theme: "dark",
+        //         position: "bottom-right",
+        //     });
+        // }
     }
 
 
     return (
+
         <div className="py-10 flex justify-center ">
             <form className="p-10 flex flex-col items-center bg-gradient-to-tr from-gray-800 to-yellow-950 text-white  rounded-xl md:w-1/2 shadow-2xl text-sm " onSubmit={handleSubmit}>
                 {step}
@@ -88,5 +107,6 @@ export default function Form() {
                 </div>
             </form>
         </div>
+
     )
 }

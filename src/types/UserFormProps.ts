@@ -1,6 +1,6 @@
 export type UserFormProps = {
     name: string;
-    email: string;
+    phone: string;
     collegeName: string;
     updateFields: any;
 };
