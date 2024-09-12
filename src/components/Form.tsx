@@ -13,9 +13,6 @@ export default function Form() {
         name: "",
         email: "",
         collegeName: "",
-        eventCategory: "",
-        eventName: "",
-        participantCount: 0
     }
 
     const [data, setData] = useState(initialData);
@@ -38,35 +35,51 @@ export default function Form() {
         isLastStep
     } = useMultiForm([
         <UserForm {...data} updateFields={updateFields} />,
-        <EventSelectionForm {...data} updateFields={updateFields} />
+        // <EventSelectionForm {...data} updateFields={updateFields} />
     ]);
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+        console.log(data);
         if (!isLastStep) return next();
-        if(!data.name || !data.email || !data.collegeName || !data.eventCategory || !data.eventName || !data.participantCount) {
+        if(!data.name || !data.email || !data.collegeName) {
             toast.warning("Please fill all the fields", {
                 theme: "dark",
                 position: "bottom-right",
-
             });
             return;
         }
-        toast.success("Form submitted successfully", {
-            theme: "dark",
-            position: "bottom-right",
-        });
-        console.log(data);
-      }
+        try {
+            const response = await fetch("/api/send", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data),
+            });
     
-    
+            const result = await response.json();
+            console.log(result);
+            toast.success("Registered Successfully", {
+                theme: "dark",
+                position: "bottom-right",
+            });
+
+        }
+        catch (error) {
+            toast.error("Something went wrong", {
+                theme: "dark",
+                position: "bottom-right",
+            });
+        }
+    }
 
 
     return (
         <div className="py-10 flex justify-center ">
             <form className="p-10 flex flex-col items-center bg-gradient-to-tr from-gray-800 to-yellow-950 text-white  rounded-xl md:w-1/2 shadow-2xl text-sm " onSubmit={handleSubmit}>
                 {step}
-                <ToastContainer  />
+                <ToastContainer />
                 <div className="p-3 rounded-xl flex w-1/2 justify-between">
                     {!isFirstStep && <button type="button" className="navbutton" onClick={back}>Back</button>}
                     <button type="button" className="navbutton" onClick={handleSubmit} disabled={isSubmitting}>

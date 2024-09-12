@@ -1,6 +1,6 @@
 export type EventSelectionFormProps = {
-    eventCategory: string;
     eventName: string;
-    participantCount: number;
-    updateFields: any;
-};
+    eventCategory: string;
+    members: any[];
+    updateFields: (fields: any) => void;
+}
