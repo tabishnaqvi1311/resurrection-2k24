@@ -12,12 +12,13 @@ import { useEventCart } from "@/hooks/useEventCart";
 export default function Form() {
 
     const initialData = {
-        name: "",
-        phone: "",
         collegeName: "",
         eventName: "",
         eventCategory: "",
-        team: []
+        team: [{
+            name: "",
+            phone: ""
+        }]
     }
 
     const [data, setData] = useState(initialData);
@@ -39,7 +40,7 @@ export default function Form() {
         next,
         isLastStep
     } = useMultiForm([
-        <UserForm {...data} updateFields={updateFields} />,
+        // <UserForm {...data} updateFields={updateFields} />,
         <EventSelectionForm {...data} updateFields={updateFields} />
     ]);
 
@@ -52,8 +53,6 @@ export default function Form() {
         console.log(cart)
 
         toast.success(JSON.stringify({
-            name: data.name,
-            phone: data.phone,
             collegeName: data.collegeName,
             cart: JSON.stringify(cart)
         }), {

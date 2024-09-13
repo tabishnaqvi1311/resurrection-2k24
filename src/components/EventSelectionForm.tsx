@@ -2,15 +2,20 @@ import { EventSelectionFormProps } from "@/types/EventSelectionForm";
 import FormWrapper from "./FormWrapper";
 import { useEventCart } from "@/hooks/useEventCart";
 import { eventCategories, eventData } from "@/constants";
+import { useState } from "react";
 
 export default function EventSelectionForm({
+    collegeName,
     eventCategory,
     eventName,
     team,
     updateFields
 }: EventSelectionFormProps) {
 
+
     const { addToCart, cart } = useEventCart();
+
+    const [teamState, setTeamState] = useState(team);
 
     const getEventNames = (category: string): string[] => {
         let eventNames: string[] = [];
@@ -26,6 +31,19 @@ export default function EventSelectionForm({
     return (
         <FormWrapper title={`Event Details`} subtitle="Please fill in the event details">
             <div className="mb-4">
+
+                <div className="flex flex-col items-start">
+                    <label className="">College Name</label>
+                    <input
+                        type="text"
+                        placeholder="College Name"
+                        className="p-2 focus:outline-none w-full rounded-lg text-background"
+                        required
+                        value={collegeName}
+                        onChange={(e) => updateFields({ collegeName: e.target.value })}
+                    />
+                </div>
+
                 <label htmlFor="eventCategory" className="block text-sm font-medium text-gray-200">Event Category</label>
                 <select
                     id="eventCategory"
@@ -61,6 +79,58 @@ export default function EventSelectionForm({
                 )
             }
 
+
+            {
+                teamState.map((team, index) => (
+                    <div key={index} className="mb-4">
+                        <div className="flex flex-col items-start">
+                            <label className="">Team Member {index + 1}</label>
+                            <input
+                                type="text"
+                                placeholder="Team Member Name"
+                                className="p-2 focus:outline-none w-full rounded-lg text-background"
+                                required
+                                value={team.name}
+                                onChange={(e) => {
+                                    let newTeam = teamState;
+                                    newTeam[index].name = e.target.value;
+                                    setTeamState([...newTeam]);
+                                    updateFields({ team: newTeam });
+                                }}
+                            />
+                        </div>
+                        <div className="flex flex-col items-start">
+                            <label className="">Member {index + 1} Phone</label>
+                            <input
+                                type="text"
+                                placeholder="Team Member Name"
+                                className="p-2 focus:outline-none w-full rounded-lg text-background"
+                                required
+                                value={team.phone}
+                                onChange={(e) => {
+                                    let newTeam = teamState;
+                                    newTeam[index].phone = e.target.value;
+                                    setTeamState([...newTeam]);
+                                    updateFields({ team: newTeam });
+                                }}
+                            />
+                        </div>
+                    </div>
+                ))
+            }
+
+            <button
+                type="button"
+                onClick={() => {
+                    setTeamState([...teamState, { name: "", phone: "" }]);
+                }}
+                className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >
+                Add Team Member
+                </button>
+            
+
+
+
             {eventName.length > 0 && (
                 <button
                     type="button"
@@ -68,11 +138,12 @@ export default function EventSelectionForm({
                         addToCart({
                             eventCategory,
                             eventName,
-                            team: []
+                            team: teamState
                         });
                         updateFields({ eventCategory: "" });
                         updateFields({ eventName: "" });
                         updateFields({ team: [] });
+                        setTeamState([]);
                     }}
                     className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >

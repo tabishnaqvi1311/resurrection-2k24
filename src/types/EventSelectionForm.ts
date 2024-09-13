@@ -1,6 +1,7 @@
-import { Team } from "@prisma/client";
+import { Team } from "./Team";
 
 export type EventSelectionFormProps = {
+    collegeName: string
     eventCategory: string,
     eventName: string,
     team: Team[]
