@@ -1,6 +1,11 @@
 import { NextRequest } from "next/server";
 
-export const GET = async (req: NextRequest) => {
-    // const response = await db.event.findMany({});
-    return new Response("my name jeff", { status: 200});
+export const POST = async (req: NextRequest) => {
+    const { collegeName, cart } = await req.json();
+
+    console.log(collegeName);
+    console.log(cart);
+    
+    return new Response("Form Submitted!", {status: 200});
+
 }

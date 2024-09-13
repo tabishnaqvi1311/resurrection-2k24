@@ -2,11 +2,10 @@
 
 import { useMultiForm } from "@/hooks/useMultiForm";
 import { FormEvent, useState } from "react";
-import UserForm from "./UseForm";
+// import UserForm from "./UseForm";
 import EventSelectionForm from "./EventSelectionForm";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { EventCartProvider } from "@/context/EventCartContext";
 import { useEventCart } from "@/hooks/useEventCart";
 
 export default function Form() {
@@ -50,15 +49,43 @@ export default function Form() {
         e.preventDefault();
         // console.log(data);
         if (!isLastStep) return next();
-        console.log(cart)
+        if(cart.length === 0) {
+            toast.warning("Please select atleast one event", {
+                theme: "dark",
+                position: "bottom-right",
+            });
+            return;
+        }
+        setIsSubmitting(true);
+        const response = await fetch("/api/send", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                collegeName: data.collegeName,
+                cart: JSON.stringify(cart)
+            }),
+        });
 
-        toast.success(JSON.stringify({
-            collegeName: data.collegeName,
-            cart: JSON.stringify(cart)
-        }), {
+        const result = await response.text();
+
+        setIsSubmitting(false);
+        toast.success(result, {
             theme: "dark",
-            position: "bottom-right"
-        })
+            position: "bottom-right",
+        });
+
+
+        // setIsSubmitting(true);
+
+        // toast.success(JSON.stringify({
+        //     collegeName: data.collegeName,
+        //     cart: JSON.stringify(cart)
+        // }), {
+        //     theme: "dark",
+        //     position: "bottom-right"
+        // })
         // if (!data.name || !data.phone || !data.collegeName) {
         //     toast.warning("Please fill all the fields", {
         //         theme: "dark",
@@ -100,8 +127,18 @@ export default function Form() {
                 <ToastContainer />
                 <div className="p-3 rounded-xl flex w-1/2 justify-between">
                     {!isFirstStep && <button type="button" className="navbutton" onClick={back}>Back</button>}
-                    <button type="button" className="navbutton" onClick={handleSubmit} disabled={isSubmitting}>
+                    <button
+                        type="button"
+                        className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 relative"
+                        onClick={handleSubmit}
+                        disabled={isSubmitting}
+                    >
                         {isLastStep ? "Submit" : "Next"}
+                        {isSubmitting && (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></div>
+                            </div>
+                        )}
                     </button>
                 </div>
             </form>
