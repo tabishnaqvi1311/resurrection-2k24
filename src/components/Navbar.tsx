@@ -32,7 +32,7 @@ export default function Navbar() {
     }, [])
 
     return (
-        <nav className="flex md:justify-around justify-between fixed top-0 w-full z-10 items-center bg-[#0b0b0b] py-4 px-6">
+        <nav className="flex md:justify-around justify-between fixed top-0 w-full z-10 items-center bg-[#0b0b0b] py-4 px-6 border-b-[0.5px] border-[#333]">
             <Link href={"/"}>
                 <div className="flex justify-center items-center">
                     <Image src={logo} alt="logo" width={50} height={50} />

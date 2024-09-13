@@ -7,6 +7,8 @@ import EventSelectionForm from "./EventSelectionForm";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEventCart } from "@/hooks/useEventCart";
+import { Button } from "./ui/button";
+import { Loader2, ShoppingCart } from "lucide-react";
 
 export default function Form() {
 
@@ -87,30 +89,33 @@ export default function Form() {
 
     return (
 
-        <div className="py-10 flex justify-center ">
-            <form className="p-10 flex flex-col items-center bg-gradient-to-tr from-gray-800 to-yellow-950  text-white  rounded-xl md:w-1/2 shadow-2xl text-sm " onSubmit={handleSubmit}>
+        <div className="p-10 flex justify-center">
+            <form className="flex flex-col items-center text-white w-full text-sm " onSubmit={handleSubmit}>
                 {step}
                 <ToastContainer />
-                <div className="p-3 rounded-xl flex w-1/2 justify-between">
+                <div className="p-3 rounded-xl flex w-[92%] justify-between items-center">
                     {!isFirstStep && <button type="button" className="navbutton" onClick={back}>Back</button>}
-                    <button
+                    <Button
                         type="button"
-                        className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 relative"
+                        className="bg-yellow-600 hover:bg-yellow-700 text-black flex gap-2 items-center"
+                        onClick={handleViewCart}
+                        disabled={cart.length === 0}
+                    >
+                        <ShoppingCart /> View Cart ({cart.length})
+                    </Button>
+                    <Button
+                        type="button"
+                        className="bg-yellow-600 hover:bg-yellow-700 text-black  disabled:opacity-50 relative"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
                     >
-                        {isLastStep ? "Submit" : "Next"}
                         {isSubmitting && (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></div>
-                            </div>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         )}
-                    </button>
+                        {isLastStep ? "Submit" : "Next"}
+                    </Button>
                 </div>
             </form>
-            <button type="button" className="fixed z-10 bottom-10 right-10 bg-yellow-600 px-6 py-2 text-base text-background rounded-lg" onClick={handleViewCart}>
-                View Cart
-            </button>
         </div>
 
     )
