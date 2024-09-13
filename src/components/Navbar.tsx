@@ -43,7 +43,7 @@ export default function Navbar() {
                 <Link href={"/register"}>
                     <button
                         className={`p-2 rounded-xl text-background transition-all duration-200 font-medium ${showButton ? "hover:bg-yellow-600 bg-[#c4851d]" : "bg-transparent text-transparent"}`}
-                        disabled={showButton}>
+                        disabled={!showButton}>
                         Register Now
                     </button>
                 </Link>

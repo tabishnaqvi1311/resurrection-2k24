@@ -2,12 +2,6 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import events from "../app/assets/events.png";
 import { Anton } from "next/font/google";
-import event1 from "../app/assets/event1.png"
-import event2 from "../app/assets/event2.png"
-import event3 from "../app/assets/event3.png"
-import event4 from "../app/assets/event4.png"
-import event5 from "../app/assets/event5.png"
-import event6 from "../app/assets/event6.png"
 import Carousel from "./Carousel";
 
 const anton = Anton({
@@ -21,9 +15,9 @@ export default function Events() {
         <div className='h-screen relative' id="events">
             <div className='absolute inset-0 bg-[#0b0b0b] opacity-30'></div>
             <Image src={events} alt='theme' height={1000} width={1000} className='w-full h-full object-cover' />
-            <div className={`absolute top-10 md:text-7xl text-4xl text-center w-full flex flex-col items-start gap-10 px-10 justify-evenly h-full`}>
+            <div className={`absolute top-0 md:text-7xl text-4xl text-center w-full flex flex-col items-start gap-10 px-10 justify-evenly h-full`}>
                 <h3 className={`${anton.className} text-white`}>Events</h3>
-                <Marquee gradient={false} speed={150} pauseOnHover>
+                {/* <Marquee gradient={false} speed={150} pauseOnHover>
                     <div className='text-white text-2xl flex gap-20 overflow-hidden'>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
                             <Image src={event1} alt='theme' height={200} width={200} className='w-full h-full object-cover rounded-xl shadow-lg' />
@@ -51,9 +45,8 @@ export default function Events() {
                         </div>
                         <div></div>
                     </div>
-                </Marquee>
-                {/* <Carousel/> */}
-                {/* <CarouselComponent/> */}
+                </Marquee> */}
+                <Carousel/>
             </div>
         </div>
     )
