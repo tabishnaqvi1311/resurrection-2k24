@@ -33,9 +33,10 @@ model Team {
 model Student {
   id        String   @id @default(cuid())
   name      String
-  phone     String   @unique
+  phone     String  
   event     Event   @relation(fields: [eventId], references: [id])
   team      Team    @relation(fields: [teamId], references: [id])
+  collegeName String
   eventId   String
   teamId    String
   createdAt DateTime @default(now())
