@@ -49,10 +49,10 @@ export default function Form() {
         e.preventDefault();
         // console.log(data);
         if (!isLastStep) return next();
-        if(cart.length === 0) {
+        if (cart.length === 0) {
             toast.warning("Please select atleast one event", {
                 theme: "dark",
-                position: "bottom-right",
+                position: "top-right",
             });
             return;
         }
@@ -73,56 +73,22 @@ export default function Form() {
         setIsSubmitting(false);
         toast.success(result, {
             theme: "dark",
-            position: "bottom-right",
+            position: "top-right",
         });
+    }
 
-
-        // setIsSubmitting(true);
-
-        // toast.success(JSON.stringify({
-        //     collegeName: data.collegeName,
-        //     cart: JSON.stringify(cart)
-        // }), {
-        //     theme: "dark",
-        //     position: "bottom-right"
-        // })
-        // if (!data.name || !data.phone || !data.collegeName) {
-        //     toast.warning("Please fill all the fields", {
-        //         theme: "dark",
-        //         position: "bottom-right",
-        //     });
-        //     return;
-        // }
-        // try {
-        //     const response = await fetch("/api/send", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(data),
-        //     });
-
-        //     const result = await response.json();
-        //     console.log(result);
-        //     toast.success("Registered Successfully", {
-        //         theme: "dark",
-        //         position: "bottom-right",
-        //     });
-
-        // }
-        // catch (error) {
-        //     toast.error("Something went wrong", {
-        //         theme: "dark",
-        //         position: "bottom-right",
-        //     });
-        // }
+    const handleViewCart = () => {
+        toast.info(JSON.stringify(cart), {
+            theme: "dark",
+            position: "top-right",
+        });
     }
 
 
     return (
 
         <div className="py-10 flex justify-center ">
-            <form className="p-10 flex flex-col items-center bg-gradient-to-tr from-gray-800 to-yellow-950 text-white  rounded-xl md:w-1/2 shadow-2xl text-sm " onSubmit={handleSubmit}>
+            <form className="p-10 flex flex-col items-center bg-gradient-to-tr from-gray-800 to-yellow-950  text-white  rounded-xl md:w-1/2 shadow-2xl text-sm " onSubmit={handleSubmit}>
                 {step}
                 <ToastContainer />
                 <div className="p-3 rounded-xl flex w-1/2 justify-between">
@@ -142,6 +108,9 @@ export default function Form() {
                     </button>
                 </div>
             </form>
+            <button type="button" className="fixed z-10 bottom-10 right-10 bg-yellow-600 px-6 py-2 text-base text-background rounded-lg" onClick={handleViewCart}>
+                View Cart
+            </button>
         </div>
 
     )
