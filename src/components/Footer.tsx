@@ -1,5 +1,3 @@
-import Image from "next/image";
-import footerbg from "../app/assets/footer.png";
 import { Anton } from "next/font/google";
 import { FaInstagram, FaFacebookF, FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -13,10 +11,8 @@ const anton = Anton({
 
 export default function Footer() {
     return (
-        <div className="h-screen relative" id="contact">
-            <Image src={footerbg} alt="footer" width={1000} height={1000} className="object-cover w-full h-full" />
-            <div className="absolute inset-0 bg-[#0b0b0b] opacity-50"></div>
-            <div className="absolute top-0 md:text-6xl text-3xl text-center w-full flex flex-col justify-around h-full items-center gap-10">
+        <div className="bg-gradient-to-r from-red-900 to-[#540101] p-10" id="contact">
+            <div className="md:text-6xl text-3xl text-center w-full flex flex-col justify-around h-full items-center gap-10">
                 <div className="flex flex-col gap-3 items-center">
                     <h1 className={`${anton.className} text-white uppercase`}>Want To be a part of resurrection?</h1>
                     <Link href={"/register"}><button className="bg-black text-yellow-600 px-6 py-3 text-lg rounded-xl w-fit">Register Now</button></Link>

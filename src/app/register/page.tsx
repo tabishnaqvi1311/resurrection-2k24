@@ -11,7 +11,7 @@ const anton = Anton({
 export default function Page() {
     return (
         <>
-            <div id="hero" /><div id="contact" />
+            <div id="hero" className="absolute top-0"/><div id="contact" className="absolute top-0" />
             <main className="relative md:flex block items-center justify-between bg-[#0b0b0b] gap-10 h-screen ">
                 <div className="flex flex-col md:w-1/2 h-full md:mt-40 mt-20 text-white">
                     <FormClient />

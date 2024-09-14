@@ -15,8 +15,11 @@ export default function Events() {
         <div className='h-screen relative' id="events">
             <div className='absolute inset-0 bg-[#0b0b0b] opacity-30'></div>
             <Image src={events} alt='theme' height={1000} width={1000} className='w-full h-full object-cover' />
-            <div className={`absolute top-0 md:text-7xl text-4xl text-center w-full flex flex-col items-start gap-10 px-10 justify-evenly h-full`}>
-                <h3 className={`${anton.className} text-white`}>Events</h3>
+            <div className={`absolute top-0 md:text-7xl text-4xl text-center w-full flex flex-col items-start px-10 justify-evenly h-full`}>
+                <div className="flex flex-col items-start ">
+                    <h3 className={`${anton.className} text-white`}>Events</h3>
+                    <p className="text-xl text-yellow-600">Click on an event to know more</p>
+                </div>
                 {/* <Marquee gradient={false} speed={150} pauseOnHover>
                     <div className='text-white text-2xl flex gap-20 overflow-hidden'>
                         <div className='flex flex-col items-start gap-2 w-[300px] h-[300px]'>
@@ -46,7 +49,7 @@ export default function Events() {
                         <div></div>
                     </div>
                 </Marquee> */}
-                <Carousel/>
+                <Carousel />
             </div>
         </div>
     )

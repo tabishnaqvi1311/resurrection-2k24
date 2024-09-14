@@ -11,7 +11,15 @@ import event2 from "../app/assets/event2.png"
 import event3 from "../app/assets/event3.png"
 import event4 from "../app/assets/event4.png"
 import event5 from "../app/assets/event5.png"
-import event6 from "../app/assets/event6.png"
+import event6 from "../app/assets/event6.webp"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 
 const useMediaQuery = (query: string) => {
     const [matches, setMatches] = useState(false)
@@ -42,12 +50,35 @@ export default function Carousel() {
     }, [emblaApi])
 
     const images = [
-        { id: 1, src: event1, alt: "image 1", title: "dance" },
-        { id: 2, src: event2, alt: "image 2", title: "music" },
-        { id: 3, src: event3, alt: "image 3", title: "theatre" },
-        { id: 4, src: event4, alt: "image 4", title: "fashion" },
-        { id: 5, src: event5, alt: "image 5", title: "fine arts" },
-        { id: 6, src: event6, alt: "image 6", title: "culinary" },
+        {
+            id: 1, src: event1, alt: "image 1", title: "music", events: [
+                'Indian', 'Classical', 'Western', 'Rap Wars', 'Beatbox', 'Battle of Bands', 'DJ Wars'
+            ]
+        },
+        {
+            id: 2, src: event2, alt: "image 2", title: "dance", events: [
+                'Classical', 'Contemporary', 'Hip Hop', 'Lyrical', 'Folk', 'Tap Dance']
+        },
+        {
+            id: 3, src: event3, alt: "image 3", title: "theatre", events: [
+                'Stage Play', 'Monologue', 'Street Play'
+            ]
+        },
+        {
+            id: 4, src: event4, alt: "image 4", title: "fashion", events: [
+                'Hairstyling', 'Self Makeup', 'Fashion Walk', 'High Glam Makeup', 'Cosplay'
+            ]
+        },
+        {
+            id: 5, src: event5, alt: "image 5", title: "fine arts", events: [
+                'Culinary Arts', 'Canvas Painting', 'Grafitti', 'Mehndi Art', 'Photography', 'Face Painting'
+            ]
+        },
+        {
+            id: 6, src: event6, alt: "image 6", title: "literary", events: [
+                'Storytelling', 'Standup Comedy', 'Poetry', 'Shayari'
+            ]
+        }
     ]
 
     return (
@@ -61,15 +92,32 @@ export default function Carousel() {
                                 className={`flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] min-w-0  ${isMobile ? 'px-4' : 'px-2'}`}
                             >
                                 <Card
-                                    className={`transition-all duration-300 border-none bg-transparent`}
+                                    className={`transition-all duration-300  bg-transparent border-none`}
                                 >
                                     <CardContent className="md:p-10 p-0">
-                                        <Image
-                                            src={image.src}
-                                            alt={image.alt}
-                                            className="w-full h-full object-cover aspect-[3/2] rounded-md"
-                                            height={1000}
-                                            width={1000} />
+                                        <Dialog>
+                                            <DialogTrigger>
+                                                <Image
+                                                    src={image.src}
+                                                    alt={image.alt}
+                                                    className="w-full h-full object-cover aspect-[3/2] rounded-md"
+                                                    height={1000}
+                                                    width={1000} />
+                                            </DialogTrigger>
+                                            <DialogContent className='sm:max-w-[425px]'>
+                                                <DialogHeader>
+                                                    <DialogTitle className='capitalize text-yellow-600'>{image.title}</DialogTitle>
+                                                    <DialogDescription>
+
+                                                    </DialogDescription>
+                                                </DialogHeader>
+                                                {
+                                                    image.events.map((event, index) => (
+                                                        <p key={index} className='capitalize'>{event}</p>
+                                                    ))
+                                                }
+                                            </DialogContent>
+                                        </Dialog>
                                         <p className='text-2xl text-white capitalize'>{image.title}</p>
                                     </CardContent>
                                 </Card>
@@ -80,7 +128,7 @@ export default function Carousel() {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="absolute md:flex hidden left-0 top-1/2 -translate-y-1/2 "
+                    className="absolute flex left-0 top-1/2 -translate-y-1/2 "
                     onClick={scrollPrev}
                     aria-label="Previous slide"
                 >
@@ -89,14 +137,14 @@ export default function Carousel() {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="absolute md:flex hidden right-0 top-1/2 -translate-y-1/2 "
+                    className="absolute flex right-0 top-1/2 -translate-y-1/2 "
                     onClick={scrollNext}
                     aria-label="Next slide"
                 >
                     <ChevronRight className="h-4 w-4" />
                 </Button>
             </div>
-            <div className='absolute right-20 top-40 gap-10 md:hidden flex'>
+            {/* <div className='absolute right-20 top-40 gap-10 md:hidden flex'>
                 <Button
                     variant="outline"
                     size="icon"
@@ -115,7 +163,7 @@ export default function Carousel() {
                 >
                     <ChevronRight className="h-4 w-4" />
                 </Button>
-            </div>
+            </div> */}
         </>
     )
 }
