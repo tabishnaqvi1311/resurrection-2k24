@@ -95,7 +95,7 @@ export default function Form() {
             <form className="flex flex-col items-center text-white w-full text-sm " onSubmit={handleSubmit}>
                 {step}
                 <ToastContainer />
-                <div className="p-3 rounded-xl flex w-[92%] justify-between items-center">
+                <div className="p-3 rounded-xl flex md:flex-row flex-col w-[92%] justify-between items-center md:gap-0 gap-7">
                     {!isFirstStep && <button type="button" className="navbutton" onClick={back}>Back</button>}
                     <Sheet>
                         <SheetTrigger asChild>

@@ -13,7 +13,7 @@ const anton = Anton({
 
 export default function FormWrapper({ title, subtitle, children }: FormWrapperProps) {
     return (
-        <div className="flex flex-col gap-10 items-center w-full ">
+        <div className="flex flex-col gap-10 items-center w-full mt-5 ">
             <div className={`flex flex-col gap-2 ${anton.className} `}>
                 <div className="flex md:flex-row flex-col mb-5">
                     <h1 className={`${anton.className} text-white text-7xl`}>
@@ -24,7 +24,7 @@ export default function FormWrapper({ title, subtitle, children }: FormWrapperPr
                     </span>
                 </div>
             </div>
-            <div className="w-full flex flex-col items-center gap-5">
+            <div className="w-full flex flex-col items-center gap-5 ">
                 {children}
             </div>
         </div>

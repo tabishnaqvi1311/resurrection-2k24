@@ -33,8 +33,8 @@ export default function EventSelectionForm({
 
     return (
         <FormWrapper title={`Event Details`} subtitle="Please fill in the event details">
-            <div className="flex md:flex-row flex-col justify-center md:items-center items-start gap-4 ">
-                <div className="flex flex-col items-start flex-[0_0_33.33%]">
+            <div className="flex md:flex-row flex-col justify-center md:items-center items-start gap-4  w-full">
+                <div className="flex flex-col items-start flex-[0_0_33.33%] w-full">
                     <label className="">College Name</label>
                     <input
                         type="text"
@@ -46,8 +46,8 @@ export default function EventSelectionForm({
                     />
                 </div>
 
-                <div className="flex flex-col items-start flex-[0_0_20%]">
-                    <label htmlFor="eventCategory" className="block text-sm font-medium text-gray-200">Event Category</label>
+                <div className="flex flex-col items-start flex-[0_0_20%] w-full">
+                    <label htmlFor="eventCategory" className="block text-sm font-medium text-gray-200 ">Event Category</label>
                     <select
                         id="eventCategory"
                         value={eventCategory}
@@ -62,7 +62,7 @@ export default function EventSelectionForm({
                     </select>
                 </div>
 
-                <div className="flex flex-col items-start flex-[0_0_33.33%]">
+                <div className="flex flex-col items-start flex-[0_0_33.33%] w-full">
                     <label htmlFor="eventName" className="block text-sm font-medium text-gray-200">Event Name</label>
                     <select
                         id="eventName"
@@ -82,8 +82,8 @@ export default function EventSelectionForm({
 
             {
                 teamState.map((team, index) => (
-                    <div key={index} className="flex md:flex-row flex-col justify-center items-center  gap-4 w-full">
-                        <div className="flex flex-col items-start flex-[0_0_44.44%] ">
+                    <div key={index} className="flex md:flex-row flex-col justify-center items-center  gap-4 w-full ">
+                        <div className="flex flex-col items-start flex-[0_0_44.44%] w-full">
                             <label className="">Team Member {index + 1}</label>
                             <input
                                 type="text"
@@ -100,7 +100,7 @@ export default function EventSelectionForm({
                                 disabled={eventName.length === 0}
                             />
                         </div>
-                        <div className="flex flex-col items-start flex-[0_0_44.44%]">
+                        <div className="flex flex-col items-start flex-[0_0_44.44%] w-full">
                             <label className="">Member {index + 1} Phone</label>
                             <input
                                 type="text"
