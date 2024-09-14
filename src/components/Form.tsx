@@ -27,6 +27,7 @@ export default function Form() {
     const [data, setData] = useState(initialData);
     const [progress, setProgress] = useState(0);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [checked, setChecked] = useState(false);
 
     const updateFields = (fields: any) => {
         setData((prev) => {
@@ -55,6 +56,13 @@ export default function Form() {
         if (!isLastStep) return next();
         if (cart.length === 0) {
             toast.warning("Please select atleast one event", {
+                theme: "dark",
+                position: "top-right",
+            });
+            return;
+        }
+        if (!checked) {
+            toast.warning("Please agree to the terms and conditions", {
                 theme: "dark",
                 position: "top-right",
             });
@@ -162,6 +170,21 @@ export default function Form() {
                         )}
                         {isLastStep ? "Submit" : "Next"}
                     </Button>
+                </div>
+                <div className="flex items-center space-x-2 w-3/4">
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        checked={checked}
+                        onChange={(e) => setChecked(e.target.checked)}
+                    />
+                    <label
+                        htmlFor="terms"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                        I have read and agreed to the <a href="#" className="text-yellow-600">terms and conditions</a> and will not ask for refunds or adjustments.
+                    </label>
                 </div>
             </form>
         </div>
