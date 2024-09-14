@@ -3,16 +3,20 @@
 import Image from "next/image";
 import logo from "../app/assets/logo.webp"
 import test from "../app/assets/test.webp"
+import mrlogo from "../app/assets/mrlogo.png"
 import { navLinks } from "@/constants";
 import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
 
     const [showButton, setShowButton] = useState<boolean>(false);
     const [toggle, setToggle] = useState<boolean>(false);
+
+    const pathName = usePathname();
 
     const handleScroll = () => {
         const hero = document.getElementById('hero');
@@ -35,18 +39,20 @@ export default function Navbar() {
         <nav className="flex md:justify-around justify-between fixed top-0 w-full z-10 items-center bg-[#0b0b0b] py-4 px-6 border-b-[0.5px] border-[#333]">
             <Link href={"/"}>
                 <div className="flex justify-center items-center">
+
+                    <Image src={mrlogo} alt="logo" width={150} height={150} />
                     <Image src={logo} alt="logo" width={50} height={50} />
                     <Image src={test} alt="logo" width={200} height={200} className="md:block hidden" />
                 </div>
             </Link>
             <div className="text-gray-300 flex items-center gap-12">
-                <Link href={"/register"}>
+                {pathName !== "/register" && <Link href={"/register"}>
                     <button
-                        className={`p-2 rounded-xl text-background transition-all duration-200 font-medium ${showButton ? "hover:bg-yellow-600 bg-[#c4851d]" : "bg-transparent text-transparent"}`}
+                        className={`p-2 rounded-xl text-background md:transition-all md:duration-200 font-medium ${showButton ? "hover:bg-yellow-600 bg-[#c4851d] md:static fixed bottom-10 right-10" : "bg-transparent text-transparent"}`}
                         disabled={!showButton}>
                         Register Now
                     </button>
-                </Link>
+                </Link>}
                 <ul className="justify-between gap-12 md:flex hidden">
                     {
                         navLinks.map((link, i) => (

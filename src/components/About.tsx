@@ -15,9 +15,13 @@ export default function About() {
             <div className="flex flex-col bg-black md:w-1/2 p-10 h-full justify-evenly">
                 <AboutStats font={anton} />
                 <div className="flex flex-col gap-4">
-                    <h1 className={`${anton.className} text-yellow-600 text-7xl`} >About</h1>
-                    <p className="text-white text-lg">
+                    <h1 className={`${anton.className} text-yellow-600 text-6xl`} >About</h1>
+                    <p className="text-white md:text-lg">
                         Manav Rachna Educational Institutions (MREI) have become a leading name in quality education and innovation since their establishment in 1997. Comprising two universities, Manav Rachna International Institute of Research and Studies (MRIIRS) and Manav Rachna University (MRU) and twelve schools across five cities, MREI is home to over 30,000 students pursuing diverse disciplines.
+                        <br /><br />
+                        As we embark on Resurrection 2K24, we’re not just continuing our legacy but elevating it. This year’s festival promises to be a celebration of creativity, talent and innovation, embodying the vibrant spirit of Manav Rachna.
+                        <br /><br />
+                        Join us on this remarkable journey, and let’s make Resurrection 2K24 a festival to remember—where tradition meets innovation and every moment shines.
                     </p>
                 </div>
             </div>

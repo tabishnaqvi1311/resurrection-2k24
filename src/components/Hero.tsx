@@ -21,8 +21,8 @@ const Hero = () => {
             {/* <div className="main">
                 <div className='gradient'/>
             </div> */}
-            <div className='absolute inset-0 bg-[#0b0b0b] opacity-90'></div>
-            <div className={` text-red-700 absolute md:top-1/4 top-1/3 md:text-9xl text-7xl text-center w-full flex md:justify-start justify-center md:pl-20 `}>
+            <div className='absolute inset-0 bg-[#0b0b0b] opacity-85'></div>
+            <div className={` text-red-700 absolute md:top-1/4 top-1/3 md:text-9xl text-6xl text-center w-full flex md:justify-start justify-center md:pl-20 `}>
                 <div className={`${anton.className} flex flex-col md:items-start items-center gap-2`}>
                     <h1>Resurrection</h1>
                     <h2>2k24</h2>
