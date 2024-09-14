@@ -19,6 +19,7 @@ export const EventCartProvider = ({ children }
     return (
         <EventCartContext.Provider value={{
             addToCart,
+            setCart,
             cart
         }}>
             {children}

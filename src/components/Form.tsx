@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEventCart } from "@/hooks/useEventCart";
 import { Button } from "./ui/button";
 import { Loader2, ShoppingCart } from "lucide-react";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
 export default function Form() {
 
@@ -45,7 +47,7 @@ export default function Form() {
         <EventSelectionForm {...data} updateFields={updateFields} />
     ]);
 
-    const { cart } = useEventCart();
+    const { cart, setCart } = useEventCart();
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -71,7 +73,7 @@ export default function Form() {
         });
 
         const result = await response.text();
-
+        setCart([]);
         setIsSubmitting(false);
         toast.success(result, {
             theme: "dark",
@@ -95,14 +97,60 @@ export default function Form() {
                 <ToastContainer />
                 <div className="p-3 rounded-xl flex w-[92%] justify-between items-center">
                     {!isFirstStep && <button type="button" className="navbutton" onClick={back}>Back</button>}
-                    <Button
-                        type="button"
-                        className="bg-yellow-600 hover:bg-yellow-700 text-black flex gap-2 items-center"
-                        onClick={handleViewCart}
-                        disabled={cart.length === 0}
-                    >
-                        <ShoppingCart /> View Cart ({cart.length})
-                    </Button>
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button
+                                type="button"
+                                className="bg-yellow-600 hover:bg-yellow-700 text-black flex gap-2 items-center"
+                                disabled={cart.length === 0}
+                            >
+                                <ShoppingCart /> View Cart ({cart.length})
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent>
+                            <SheetHeader>
+                                <SheetTitle>All Selected Events</SheetTitle>
+                                <SheetDescription>
+                                    This is the list of all the events you have selected
+                                </SheetDescription>
+                            </SheetHeader>
+                            <div className="mb-4">
+                                {cart.map((item, index) => (
+                                    <div key={index} className="flex flex-col justify-between items-start p-2 border-b border-gray-300">
+                                        <div>
+                                            <p className="text-lg">{item.eventName}</p>
+                                            <p className="text-sm">{item.eventCategory}</p>
+                                        </div>
+                                        <div className="w-full">
+                                            <Table>
+                                                <TableHeader>
+                                                    <TableRow>
+                                                        <TableHead>Name</TableHead>
+                                                        <TableHead>Phone</TableHead>
+                                                    </TableRow>
+                                                </TableHeader>
+                                                <TableBody>
+                                                    {item.team.map((team, index) => (
+                                                        <TableRow key={index}>
+                                                            <TableCell>{team.name}</TableCell>
+                                                            <TableCell>{team.phone}</TableCell>
+                                                        </TableRow>
+                                                    ))}
+                                                </TableBody>
+                                            </Table>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <SheetFooter>
+                                <SheetClose>
+                                    <Button type="button" className="bg-yellow-600 hover:bg-yellow-700 text-black w-full">
+                                        Proceed To Payment
+                                    </Button>
+                                </SheetClose>
+                            </SheetFooter>
+                        </SheetContent>
+                    </Sheet>
                     <Button
                         type="button"
                         className="bg-yellow-600 hover:bg-yellow-700 text-black  disabled:opacity-50 relative"

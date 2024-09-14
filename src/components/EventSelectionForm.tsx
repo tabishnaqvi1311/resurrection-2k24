@@ -131,7 +131,7 @@ export default function EventSelectionForm({
                 </button>
             </div>
 
-            {eventName.length > 0 && eventCategory.length > 0 && team[0].name.length > 0 && team[0].phone.length > 0 && (
+            {eventName.length > 0 && eventCategory.length > 0  && (
                 <Button
                     type="button"
                     onClick={() => {
