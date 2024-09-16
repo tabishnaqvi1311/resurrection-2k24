@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import logo from "../app/assets/logo.webp"
-import test from "../app/assets/test.webp"
 import mrlogo from "../app/assets/mrlogo.png"
 import { navLinks } from "@/constants";
 import { useEffect, useState } from "react";
@@ -10,6 +9,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
 

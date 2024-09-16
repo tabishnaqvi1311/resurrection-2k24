@@ -11,7 +11,7 @@ const anton = Anton({
 const Theme = () => {
     return (
         <div className='h-screen relative'>
-            <div className='absolute inset-0 bg-[#0b0b0b] opacity-50'></div>
+            <div className='absolute inset-0 bg-[#0b0b0b] opacity-45'></div>
             <Image src={theme} alt='theme' height={1000} width={1000} className='w-full h-full object-cover' />
             <div className={`absolute top-1/4 md:text-9xl text-7xl text-center w-full flex flex-col justify-center items-center gap-10`}>
                 <div className='md:text-3xl text-base bg-yellow-600 md:px-36 px-16 py-5 rounded-full font-medium'>Theme for Resurrection 2k24</div>
