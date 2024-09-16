@@ -2,7 +2,6 @@ import React from 'react'
 import theme from "../app/assets/theme.png"
 import Image from 'next/image'
 import { Anton } from 'next/font/google';
-import localFont from 'next/font/local';
 
 const anton = Anton({
     subsets: ["latin"],

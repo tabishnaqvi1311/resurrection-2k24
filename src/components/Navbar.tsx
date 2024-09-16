@@ -42,7 +42,7 @@ export default function Navbar() {
 
                     <Image src={mrlogo} alt="logo" width={150} height={150} />
                     <Image src={logo} alt="logo" width={50} height={50} />
-                    <Image src={test} alt="logo" width={200} height={200} className="md:block hidden" />
+                    {/* <Image src={test} alt="logo" width={200} height={200} className="md:block hidden" /> */}
                 </div>
             </Link>
             <div className="text-gray-300 flex items-center gap-12">
