@@ -34,15 +34,15 @@ export default function Footer() {
                     </div>
                     <div className="flex flex-col gap-4 text-sm">
                         <div className="flex items-center text-white gap-4">
-                            <FaLocationDot size={40} color="#c4851d" />
+                            <FaLocationDot size={30} color="#c4851d" />
                             <p>Manav Rachna Campus <br /> Sector 43, Aravalli Hills</p>
                         </div>
                         <div className="flex items-center text-white gap-4">
-                            <FaPhoneAlt size={40} color="#c4851d" />
+                            <FaPhoneAlt size={30} color="#c4851d" />
                             <p>+91 84477 80247</p>
                         </div>
                         <div className="flex items-center text-white gap-4">
-                            <IoMdMail size={40} color="#c4851d" />
+                            <IoMdMail size={30} color="#c4851d" />
                             <p>mrfest@mrei.ac.in</p>
                         </div>
                     </div>
