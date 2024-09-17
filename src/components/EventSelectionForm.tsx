@@ -82,8 +82,8 @@ export default function EventSelectionForm({
 
             {
                 teamState.map((team, index) => (
-                    <div key={index} className="flex md:flex-row flex-col justify-center items-center  gap-4 w-full ">
-                        <div className="flex flex-col items-start flex-[0_0_44.44%] w-full">
+                    <div key={index} className="flex flex-col justify-center items-center  gap-4 w-full ">
+                        <div className="flex flex-col items-start w-[90%]">
                             <label className="">Team Member {index + 1}</label>
                             <input
                                 type="text"
@@ -100,22 +100,41 @@ export default function EventSelectionForm({
                                 disabled={eventName.length === 0}
                             />
                         </div>
-                        <div className="flex flex-col items-start flex-[0_0_44.44%] w-full">
-                            <label className="">Member {index + 1} Phone</label>
-                            <input
-                                type="text"
-                                placeholder="Team Member Name"
-                                className="p-2 focus:outline-none w-full rounded-lg text-black disabled:opacity-50 disabled:bg-white" 
-                                required
-                                value={team.phone}
-                                onChange={(e) => {
-                                    let newTeam = teamState;
-                                    newTeam[index].phone = e.target.value;
-                                    setTeamState([...newTeam]);
-                                    updateFields({ team: newTeam });
-                                }}
-                                disabled={eventName.length === 0}
-                            />
+                        <div className="flex md:flex-row flex-col w-[90%] justify-between">
+                            <div className="flex flex-col items-start flex-[0_0_44.44%] w-full">
+                                <label className="">Member {index + 1} Phone</label>
+                                <input
+                                    type="text"
+                                    placeholder="Team Member Name"
+                                    className="p-2 focus:outline-none w-full rounded-lg text-black disabled:opacity-50 disabled:bg-white"
+                                    required
+                                    value={team.phone}
+                                    onChange={(e) => {
+                                        let newTeam = teamState;
+                                        newTeam[index].phone = e.target.value;
+                                        setTeamState([...newTeam]);
+                                        updateFields({ team: newTeam });
+                                    }}
+                                    disabled={eventName.length === 0}
+                                />
+                            </div>
+                            <div className="flex flex-col items-start flex-[0_0_44.44%] w-full">
+                                <label className="">Member {index + 1} Email</label>
+                                <input
+                                    type="text"
+                                    placeholder="Team Member Name"
+                                    className="p-2 focus:outline-none w-full rounded-lg text-black disabled:opacity-50 disabled:bg-white"
+                                    required
+                                    value={team.email}
+                                    onChange={(e) => {
+                                        let newTeam = teamState;
+                                        newTeam[index].email = e.target.value;
+                                        setTeamState([...newTeam]);
+                                        updateFields({ team: newTeam });
+                                    }}
+                                    disabled={eventName.length === 0}
+                                />
+                            </div>
                         </div>
                     </div>
                 ))
@@ -124,14 +143,14 @@ export default function EventSelectionForm({
                 <button
                     type="button"
                     onClick={() => {
-                        setTeamState([...teamState, { name: "", phone: "" }]);
+                        setTeamState([...teamState, { name: "", phone: "", email: "" }]);
                     }}
                     className="flex-[0_0_92%] border p-3 border-dashed flex items-center gap-2 justify-center rounded-xl" >
-                    <Plus/> Add Member
+                    <Plus /> Add Member
                 </button>
             </div>
 
-            {eventName.length > 0 && eventCategory.length > 0  && (
+            {eventName.length > 0 && eventCategory.length > 0 && (
                 <Button
                     type="button"
                     onClick={() => {

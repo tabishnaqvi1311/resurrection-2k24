@@ -20,7 +20,8 @@ export default function Form() {
         eventCategory: "",
         team: [{
             name: "",
-            phone: ""
+            phone: "",
+            email: ""
         }]
     }
 
@@ -135,6 +136,7 @@ export default function Form() {
                                                     <TableRow>
                                                         <TableHead>Name</TableHead>
                                                         <TableHead>Phone</TableHead>
+                                                        <TableHead>Email</TableHead>
                                                     </TableRow>
                                                 </TableHeader>
                                                 <TableBody>
@@ -142,6 +144,7 @@ export default function Form() {
                                                         <TableRow key={index}>
                                                             <TableCell>{team.name}</TableCell>
                                                             <TableCell>{team.phone}</TableCell>
+                                                            <TableCell>{team.email}</TableCell>
                                                         </TableRow>
                                                     ))}
                                                 </TableBody>
