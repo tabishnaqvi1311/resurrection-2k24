@@ -6,12 +6,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from 'next/image'
-import event1 from "../app/assets/event1.png"
-import event2 from "../app/assets/event2.png"
-import event3 from "../app/assets/event3.png"
-import event4 from "../app/assets/event4.png"
-import event5 from "../app/assets/event5.png"
-import event6 from "../app/assets/event6.webp"
+import event1 from "../app/assets/music1.jpg"
+import event2 from "../app/assets/dance3.jpg"
+import event3 from "../app/assets/theatre.jpg"
+import event4 from "../app/assets/fashion.jpg"
+import event5 from "../app/assets/fineart.jpg"
+import event6 from "../app/assets/lit.jpg"
 import {
     Dialog,
     DialogContent,

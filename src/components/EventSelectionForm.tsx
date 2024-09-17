@@ -35,7 +35,7 @@ export default function EventSelectionForm({
         <FormWrapper title={`Event Details`} subtitle="Please fill in the event details">
             <div className="flex md:flex-row flex-col justify-center md:items-center items-start gap-4  w-full">
                 <div className="flex flex-col items-start flex-[0_0_33.33%] w-full">
-                    <label className="">College Name</label>
+                    <label className="">University/College Name</label>
                     <input
                         type="text"
                         placeholder="College Name"

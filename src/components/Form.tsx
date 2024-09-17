@@ -186,7 +186,7 @@ export default function Form() {
                         htmlFor="terms"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                        I have read and agreed to the <a href="#" className="text-yellow-600">terms and conditions</a> and will not ask for refunds or adjustments.
+                        I have read and agreed to the <a href="#" className="text-yellow-600">terms and conditions</a>.
                     </label>
                 </div>
             </form>
