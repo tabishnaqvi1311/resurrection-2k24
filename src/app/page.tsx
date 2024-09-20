@@ -12,7 +12,7 @@ export default function Home() {
       <About />
       <Theme />
       <Events/>
-      {/* <OverTheYears/> */}
+      <OverTheYears/>
       <Footer/>
     </main>
   )
