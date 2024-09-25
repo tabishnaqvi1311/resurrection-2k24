@@ -1,10 +1,10 @@
-export const privacyPolicyLink = "https://docs.google.com/document/d/1qmyHpo_xjs9jpUUt6YWGvm54wniVdB_2/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true";
+export const privacyPolicyLink = "https://drive.google.com/file/d/1zvZXKm1P70IJIAcYVmtoC02orUYnY-6F/view?usp=sharing";
 
-export const termsConditionsLink = "https://docs.google.com/document/d/1uE1eHYi2amZT5yq0q5fkvmkd-kEjKlQ1/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true";
+export const termsConditionsLink = "https://drive.google.com/file/d/1DoIwz84CdsdXTSoxoSLenF_dXIQKifJ1/view?usp=sharing";
 
-export const pricingPolicyLink = "https://docs.google.com/document/d/12vbWNpfbGVURsvn1ndaR7vS3WSqerb82/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true";
+export const pricingPolicyLink = "https://drive.google.com/file/d/1dmPDkC_Bg4TGcxt6BMigbPnSs2bZzjuC/view?usp=sharing";
 
-export const cancellationRefundLink = "https://docs.google.com/document/d/1QsMCHuZCVXPZGl8R32_Dsjigqz07Pub9/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true"
+export const cancellationRefundLink = "https://drive.google.com/file/d/1hdmLJig09pKphxVS1KmpIkt5trgVLWWf/view?usp=sharing"
 
 
 export const navLinks = [
