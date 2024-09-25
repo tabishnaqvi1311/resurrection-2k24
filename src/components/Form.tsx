@@ -11,6 +11,7 @@ import { Button } from "./ui/button";
 import { Loader2, ShoppingCart } from "lucide-react";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import { cancellationRefundLink } from "@/constants";
 
 export default function Form() {
 
@@ -186,7 +187,7 @@ export default function Form() {
                         htmlFor="terms"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                        I have read and agreed to the <a href="#" className="text-yellow-600">terms and conditions</a>.
+                        I have read and agree to the <a href={cancellationRefundLink} className="text-yellow-600">cancellation and refund policy</a>.
                     </label>
                 </div>
             </form>

@@ -1,3 +1,12 @@
+export const privacyPolicyLink = "https://docs.google.com/document/d/1qmyHpo_xjs9jpUUt6YWGvm54wniVdB_2/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true";
+
+export const termsConditionsLink = "https://docs.google.com/document/d/1uE1eHYi2amZT5yq0q5fkvmkd-kEjKlQ1/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true";
+
+export const pricingPolicyLink = "https://docs.google.com/document/d/12vbWNpfbGVURsvn1ndaR7vS3WSqerb82/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true";
+
+export const cancellationRefundLink = "https://docs.google.com/document/d/1QsMCHuZCVXPZGl8R32_Dsjigqz07Pub9/edit?usp=sharing&ouid=102389660575147139874&rtpof=true&sd=true"
+
+
 export const navLinks = [
     {
         title: "About",

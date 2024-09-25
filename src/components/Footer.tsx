@@ -3,6 +3,7 @@ import { FaInstagram, FaFacebookF, FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import Link from "next/link";
+import { cancellationRefundLink, pricingPolicyLink, privacyPolicyLink, termsConditionsLink } from "@/constants";
 
 const anton = Anton({
     subsets: ["latin"],
@@ -46,6 +47,12 @@ export default function Footer() {
                             <p>mrfest@mrei.ac.in</p>
                         </div>
                     </div>
+                </div>
+                <div className="text-sm flex sm:flex-row flex-col text-yellow-600 gap-7">
+                    <a href={termsConditionsLink}>Terms & Conditions</a>
+                    <a href={privacyPolicyLink}>Privacy Policy</a>
+                    <a href={pricingPolicyLink}>Pricing Policy</a>
+                    <a href={cancellationRefundLink}>Cancellation & Refund Policy</a>
                 </div>
             </div>
         </div>
