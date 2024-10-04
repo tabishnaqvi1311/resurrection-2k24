@@ -11,6 +11,7 @@ export default function EventSelectionForm({
     collegeName,
     eventCategory,
     eventName,
+    participationType,
     team,
     updateFields
 }: EventSelectionFormProps) {
@@ -80,6 +81,57 @@ export default function EventSelectionForm({
                 </div>
             </div>
 
+            <div className="w-3/4">
+                <label className="block text-sm font-medium text-gray-200">Participation Type</label>
+                <div className="flex items-center gap-4 justify-evenly">
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="radio"
+                            id="solo"
+                            name="participationType"
+                            value="solo"
+                            checked={participationType === "solo"}
+                            onChange={(e) => {
+                                setTeamState([]);
+                                updateFields({ participationType: e.target.value })
+                            }}
+                            className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
+                        />
+                        <label htmlFor="solo" className="text-sm font-medium text-gray-200">Solo</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="radio"
+                            id="duet"
+                            name="participationType"
+                            value="duet"
+                            checked={participationType === "duet"}
+                            onChange={(e) => {
+                                setTeamState([]);
+                                updateFields({ participationType: e.target.value })
+                            }}
+                            className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
+                        />
+                        <label htmlFor="duet" className="text-sm font-medium text-gray-200">Duet</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="radio"
+                            id="group"
+                            name="participationType"
+                            value="group"
+                            checked={participationType === "group"}
+                            onChange={(e) => {
+                                setTeamState([]);
+                                updateFields({ participationType: e.target.value })
+                            }}
+                            className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
+                        />
+                        <label htmlFor="team" className="text-sm font-medium text-gray-200">Group</label>
+                    </div>
+                </div>
+            </div>
+
             {
                 teamState.map((team, index) => (
                     <div key={index} className="flex flex-col justify-center items-center  gap-4 w-full ">
@@ -145,7 +197,12 @@ export default function EventSelectionForm({
                     onClick={() => {
                         setTeamState([...teamState, { name: "", phone: "", email: "" }]);
                     }}
-                    className="flex-[0_0_92%] border p-3 border-dashed flex items-center gap-2 justify-center rounded-xl" >
+                    className={`flex-[0_0_92%] border p-3 border-dashed
+                    items-center gap-2 justify-center rounded-xl 
+                    ${participationType === "solo" && teamState.length >= 1 ? 
+                        "hidden" : 
+                        participationType === "duet" && teamState.length >= 2 ? "hidden" : "flex"}
+                    `}>
                     <Plus /> Add Member
                 </button>
             </div>

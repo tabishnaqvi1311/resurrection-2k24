@@ -19,6 +19,7 @@ export default function Form() {
         collegeName: "",
         eventName: "",
         eventCategory: "",
+        participationType: 'solo',
         team: [{
             name: "",
             phone: "",
@@ -54,7 +55,7 @@ export default function Form() {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        // console.log(data);
+        console.log(data);
         if (!isLastStep) return next();
         if (cart.length === 0) {
             toast.warning("Please select atleast one event", {
